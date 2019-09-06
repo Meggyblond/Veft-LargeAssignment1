@@ -12,3 +12,10 @@
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.RazorTargetAssemblyInfo.cache
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.dll
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Models.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Repositories.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Services.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Models.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Services.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Repositories.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.csproj.CopyComplete
