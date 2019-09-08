@@ -15,9 +15,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         // GET api/values
         [Route("")]
         [HttpGet]
-        public IActionResult GetAllNews([FromQuery(Name = "pageSize")] int pageSize = 25)
+        public IActionResult GetAllNews([FromQuery] int pageSize = 25,[FromQuery] int pageNumber = 1)
         {
-            return Ok(_newsService.GetAllNews(pageSize));
+            return Ok(_newsService.GetAllNews(pageSize, pageNumber));
         }
         [Route("{id:int}", Name = "GetNewsItemById")]
         [HttpGet]
