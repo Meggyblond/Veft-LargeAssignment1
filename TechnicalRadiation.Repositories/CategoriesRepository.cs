@@ -16,5 +16,16 @@ namespace TechnicalRadiation.Repositories
                 Slug = c.Slug
             });
         }
+        public CategoryDto GetCategoryById(int id)
+        {
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            if(entity == null) { /* do smth*/ }
+            return new CategoryDto 
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Slug = entity.Slug
+            };
+        }
     }
 }

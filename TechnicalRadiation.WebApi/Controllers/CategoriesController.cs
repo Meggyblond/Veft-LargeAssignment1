@@ -19,5 +19,12 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             return Ok(_categoriesService.GetAllCategories());
         }
+
+        [Route("{id:int}", Name = "GetCategoryById")]
+        [HttpGet]
+        public IActionResult GetCategoryById(int id)
+        {
+            return Ok(_categoriesService.GetCategoryById(id));
+        }
     }
 }

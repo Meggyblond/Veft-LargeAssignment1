@@ -10,7 +10,7 @@ namespace TechnicalRadiation.Repositories
     {
         public IEnumerable<NewsItemDto> GetAllNews(int pageSize, int pageNumber)
         {
-            var newsItems = NewsItemDataProvider.NewsItems.Select(n => new NewsItemDto
+            var newsItems = NewsItemDataProvider.NewsItems.OrderByDescending(n=> n.PublishDate).Select(n => new NewsItemDto
             {
                 Id = n.Id,
                 Title = n.Title,
