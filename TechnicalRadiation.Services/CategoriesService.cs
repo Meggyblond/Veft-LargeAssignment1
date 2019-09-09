@@ -12,7 +12,6 @@ namespace TechnicalRadiation.Services
         {
             return _categoriesRepo.GetAllCategories();
         }
-        
         public CategoryDto GetCategoryById(int id)
         {
             return _categoriesRepo.GetCategoryById(id);

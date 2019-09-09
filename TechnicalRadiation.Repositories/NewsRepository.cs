@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
 namespace TechnicalRadiation.Repositories
@@ -29,6 +32,31 @@ namespace TechnicalRadiation.Repositories
             {
                 return null; //Dosmth
             }
+            return new NewsItemDto
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                ImgSource = entity.ImgSource,
+                ShortDescription = entity.ShortDescription
+            };
+        }
+
+        public NewsItemDto CreateNews(NewsItemInputModel news)
+        {
+            var nextInt = NewsItemDataProvider.NewsItems.OrderByDescending(n => n.Id).FirstOrDefault().Id + 1;
+            var entity = new NewsItem
+            {
+                Id = nextInt,
+                Title = news.Title,
+                ImgSource = news.ImgSource,
+                ShortDescription = news.ShortDescription,
+                LongDescription = news.LongDescription,
+                PublishDate = news.PublishDate,
+                ModifiedBy = "Admin",
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now
+            };
+            NewsItemDataProvider.NewsItems.Add(entity);
             return new NewsItemDto
             {
                 Id = entity.Id,
