@@ -27,7 +27,10 @@
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
+<<<<<<< HEAD
           "System.ComponentModel.Annotations": "4.5.0",
+=======
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
           "TechnicalRadiation.Models": "1.0.0",
           "TechnicalRadiation.Services": "1.0.0"
         },

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "FilePath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+=======
+  "FilePath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csprojAssemblyReference.cache
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csproj.CoreCompileInputs.cache
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.AssemblyInfoInputs.cache
@@ -10,3 +11,17 @@
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csproj.CopyComplete
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.dll
 /Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.pdb
+=======
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Repositories.deps.json
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Repositories.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Repositories.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Models.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Models.pdb
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csprojAssemblyReference.cache
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csproj.CoreCompileInputs.cache
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.AssemblyInfoInputs.cache
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.AssemblyInfo.cs
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csproj.CopyComplete
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.dll
+/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.pdb
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
