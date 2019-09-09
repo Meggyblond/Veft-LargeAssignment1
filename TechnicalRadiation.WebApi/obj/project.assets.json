@@ -4438,6 +4438,8 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+<<<<<<< HEAD
+=======
       },
       "TechnicalRadiation.Models/1.0.0": {
         "type": "project",
@@ -4478,6 +4480,7 @@
         "runtime": {
           "bin/placeholder/TechnicalRadiation.Services.dll": {}
         }
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
       }
     }
   },
@@ -12103,6 +12106,8 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+<<<<<<< HEAD
+=======
     },
     "TechnicalRadiation.Models/1.0.0": {
       "type": "project",
@@ -12118,15 +12123,20 @@
       "type": "project",
       "path": "../TechnicalRadiation.Services/TechnicalRadiation.Services.csproj",
       "msbuildProject": "../TechnicalRadiation.Services/TechnicalRadiation.Services.csproj"
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+<<<<<<< HEAD
+      "Microsoft.NETCore.App >= 2.2.0"
+=======
       "Microsoft.NETCore.App >= 2.2.0",
       "TechnicalRadiation.Models >= 1.0.0",
       "TechnicalRadiation.Services >= 1.0.0"
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
     ]
   },
   "packageFolders": {
@@ -12136,11 +12146,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+      "projectName": "TechnicalRadiation.WebApi",
+      "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+      "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
+      "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/obj/",
+=======
       "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
       "projectName": "TechnicalRadiation.WebApi",
       "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
       "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
       "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/",
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -12156,6 +12174,9 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
+<<<<<<< HEAD
+          "projectReferences": {}
+=======
           "projectReferences": {
             "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
               "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
@@ -12164,6 +12185,7 @@
               "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj"
             }
           }
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
         }
       },
       "warningProperties": {

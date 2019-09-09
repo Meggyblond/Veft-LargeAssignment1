@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {}
+  },
+  "projects": {
+    "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "projectName": "TechnicalRadiation.WebApi",
+        "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
+        "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.WebApi/obj/",
+=======
     "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {}
   },
   "projects": {
@@ -177,6 +190,7 @@
         "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
         "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
         "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.WebApi/obj/",
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -192,6 +206,9 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
+<<<<<<< HEAD
+            "projectReferences": {}
+=======
             "projectReferences": {
               "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
                 "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
@@ -200,6 +217,7 @@
                 "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj"
               }
             }
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
           }
         },
         "warningProperties": {

@@ -25,6 +25,8 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+<<<<<<< HEAD
+=======
       },
       "System.ComponentModel.Annotations/4.5.0": {
         "type": "package",
@@ -47,6 +49,7 @@
         "runtime": {
           "bin/placeholder/TechnicalRadiation.Models.dll": {}
         }
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
       }
     }
   },
@@ -193,6 +196,8 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+<<<<<<< HEAD
+=======
     },
     "System.ComponentModel.Annotations/4.5.0": {
       "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
@@ -287,12 +292,17 @@
       "type": "project",
       "path": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
       "msbuildProject": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+<<<<<<< HEAD
+      "NETStandard.Library >= 2.0.3"
+=======
       "NETStandard.Library >= 2.0.3",
       "TechnicalRadiation.Models >= 1.0.0"
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
     ]
   },
   "packageFolders": {
@@ -302,11 +312,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+      "projectName": "TechnicalRadiation.Repositories",
+      "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+      "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
+      "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/",
+=======
       "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
       "projectName": "TechnicalRadiation.Repositories",
       "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
       "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
       "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/obj/",
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -322,11 +340,15 @@
       },
       "frameworks": {
         "netstandard2.0": {
+<<<<<<< HEAD
+          "projectReferences": {}
+=======
           "projectReferences": {
             "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
               "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
             }
           }
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
         }
       },
       "warningProperties": {

@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj": {}
+  },
+  "projects": {
+    "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+        "projectName": "TechnicalRadiation.Repositories",
+        "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+        "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
+        "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/TechnicalRadiation/TechnicalRadiation.Repositories/obj/",
+=======
     "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
         "packagesPath": "/Users/arnimagnusson/.nuget/packages/",
         "outputPath": "/Users/arnimagnusson/Desktop/Hr/Haust19/Vefþjónustur/Veft-LargeAssignment1/TechnicalRadiation.Models/obj/",
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -44,6 +58,8 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+<<<<<<< HEAD
+=======
             },
             "System.ComponentModel.Annotations": {
               "target": "Package",
@@ -102,6 +118,7 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+>>>>>>> 461cbd356840cd9bc785aead75ff85d88294c6fe
             }
           },
           "imports": [
