@@ -13,19 +13,21 @@ namespace TechnicalRadiation.WebApi.Controllers
     public class NewsController : ControllerBase
     {
         private NewsService _newsService = new NewsService();
-        // GET api/values
+        
         [Route("")]
         [HttpGet]
         public IActionResult GetAllNews([FromQuery] int pageSize = 25,[FromQuery] int pageNumber = 1)
         {
             return Ok(_newsService.GetAllNews(pageSize, pageNumber));
         }
-        [Route("{id:int}", Name = "GetNewsItemById")]
+
+        [Route("{newsItemId:int}", Name = "GetNewsItemById")]
         [HttpGet]
-        public IActionResult GetNewsItemById(int id)
+        public IActionResult GetNewsItemById(int newsItemId)
         {
-            return Ok(_newsService.GetNewsItemById(id));
+            return Ok(_newsService.GetNewsItemById(newsItemId));
         }
+
         [Route("")]
         [HttpPost]
         public IActionResult CreateNews([FromBody] NewsItemInputModel body)
@@ -34,6 +36,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             var entity = _newsService.CreateNews(body);
             return CreatedAtRoute("GetNewsItemById", new { id = entity.Id }, null);
         }
+
         [Route("{id:int}", Name = "UpdateNews")]
         [HttpPut]
         public IActionResult UpdateNews([FromBody] NewsItemInputModel body, int id)
@@ -42,6 +45,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             _newsService.UpdateNews(body, id);
             return NoContent();
         }
+
         [Route("{id:int}", Name = "DeleteNews")]
         [HttpDelete]
         public IActionResult DeleteNews(int id)

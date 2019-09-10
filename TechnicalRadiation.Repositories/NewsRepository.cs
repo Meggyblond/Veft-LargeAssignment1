@@ -24,19 +24,21 @@ namespace TechnicalRadiation.Repositories
 
             return envelope.Items;
         }
-        public NewsItemDto GetNewsItemById(int id)
+        public NewsItemDetailDto GetNewsItemById(int newsItemId)
         {
-            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
+            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
             if(entity == null) 
             {
                 return null; //Dosmth
             }
-            return new NewsItemDto
+            return new NewsItemDetailDto
             {
                 Id = entity.Id,
                 Title = entity.Title,
                 ImgSource = entity.ImgSource,
-                ShortDescription = entity.ShortDescription
+                ShortDescription = entity.ShortDescription,
+                LongDescription = entity.LongDescription,
+                PublishDate = entity.PublishDate
             };
         }
         public NewsItemDto CreateNews(NewsItemInputModel news)
