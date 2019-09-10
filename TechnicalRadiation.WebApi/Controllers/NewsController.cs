@@ -42,6 +42,12 @@ namespace TechnicalRadiation.WebApi.Controllers
             _newsService.UpdateNews(body, id);
             return NoContent();
         }
-
+        [Route("{id:int}", Name = "DeleteNews")]
+        [HttpDelete]
+        public IActionResult DeleteNews(int id)
+        {
+            _newsService.DeleteNews(id);
+            return NoContent();
+        }
     }
 }

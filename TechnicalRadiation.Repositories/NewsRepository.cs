@@ -75,5 +75,11 @@ namespace TechnicalRadiation.Repositories
             entity.ModifiedBy = "Admin";
             entity.ModifiedDate = DateTime.Now;
         }
+        public void DeleteNews(int id)
+        {
+            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
+            if(entity == null) { /* do smth */}
+            NewsItemDataProvider.NewsItems.Remove(entity);
+        }
     }
 }

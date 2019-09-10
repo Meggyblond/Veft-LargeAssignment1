@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
@@ -25,6 +26,14 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult GetCategoryById(int id)
         {
             return Ok(_categoriesService.GetCategoryById(id));
+        }
+        [Route("")]
+        [HttpPost]
+        public IActionResult CreateCategory([FromBody] CategoryInputModel body)
+        {
+            if(!ModelState.IsValid) {return BadRequest("Model is not properly formatted");}
+            var entity = _categoriesService.CreateCategory(body);
+            return CreatedAtRoute("GetCategoryById", new { id = entity.Id }, null);
         }
     }
 }
