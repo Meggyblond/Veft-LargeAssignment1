@@ -13,7 +13,7 @@ namespace TechnicalRadiation.WebApi.Controllers
     public class AuthorsController : ControllerBase
     {
         private AuthorsService _authorsService = new AuthorsService();
-        // GET api/values
+
         [Route("")]
         [HttpGet]
         public IActionResult GetAllAuthors()
@@ -21,11 +21,11 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_authorsService.GetAllAuthors());
         }
 
-        [Route("{id:int}", Name = "GetAuthorById")]
+        [Route("{authorId:int}", Name = "GetAuthorById")]
         [HttpGet]
-        public IActionResult GetAuthorById(int id)
+        public IActionResult GetAuthorById(int authorId)
         {
-            return Ok(_authorsService.GetAuthorById(id));
+            return Ok(_authorsService.GetAuthorById(authorId));
         }
 
         [Route("{authorId:int}/newsitems", Name = "GetNewsByAuthorId")]

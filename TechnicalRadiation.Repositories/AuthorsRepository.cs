@@ -18,14 +18,16 @@ namespace TechnicalRadiation.Repositories
                 Name = a.Name
             });
         }
-        public AuthorDto GetAuthorById(int id)
+        public AuthorDetailDto GetAuthorById(int authorId)
         {
-            var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
+            var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == authorId);
             if(entity == null) { /* do smth */}
-            return new AuthorDto 
+            return new AuthorDetailDto 
             {
                 Id = entity.Id,
-                Name = entity.Name
+                Name = entity.Name,
+                ProfielImgSource = entity.ProfileImgSource,
+                Bio = entity.Bio
             };
         }
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
