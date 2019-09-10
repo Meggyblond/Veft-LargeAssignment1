@@ -66,5 +66,21 @@ namespace TechnicalRadiation.Repositories
                 Name = entity.Name
             };
         }
+        public void UpdateAuthor(AuthorInputModel author, int id)
+        {
+            var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
+            if(entity == null) {/* do smth */}
+            entity.Name = author.Name;
+            entity.ProfileImgSource = author.ProfileImgSource;
+            entity.Bio = author.Bio;
+            entity.ModifiedBy = "Admin";
+            entity.ModifiedDate = DateTime.Now;
+        }
+        public void DeleteAuthor(int id)
+        {
+            var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
+            if(entity == null) {/* do smth */}
+            AuthorDataProvider.Authors.Remove(entity);
+        }
     }
 }

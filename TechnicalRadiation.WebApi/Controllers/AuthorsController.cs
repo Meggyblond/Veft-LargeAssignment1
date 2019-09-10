@@ -34,6 +34,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             return Ok(_authorsService.GetNewsByAuthorId(id));
         }
+
         [Route("")]
         [HttpPost]
         public IActionResult CreateAuthor([FromBody] AuthorInputModel body)
@@ -41,6 +42,23 @@ namespace TechnicalRadiation.WebApi.Controllers
             if(!ModelState.IsValid) {return BadRequest("Model not properly formatted");}
             var entity = _authorsService.CreateAuthor(body);
             return CreatedAtRoute("GetAuthorById", new { id = entity.Id }, null);
+        }
+
+        [Route("{id:int}", Name = "UpdateAuthor")]
+        [HttpPut]
+        public IActionResult UpdateAuthor([FromBody] AuthorInputModel body, int id)
+        {
+            if(!ModelState.IsValid) { return BadRequest("Model not properly formatted");}
+            _authorsService.UpdateAuthor(body, id);
+            return NoContent();
+        }
+
+        [Route("{id:int}", Name = "DeleteAuthor")]
+        [HttpDelete]
+        public IActionResult DeleteAuthor(int id)
+        {
+            _authorsService.DeleteAuthor(id);
+            return NoContent();
         }
     }
 }

@@ -24,5 +24,13 @@ namespace TechnicalRadiation.Services
         {
             return _authorsRepo.CreateAuthor(author);
         }
+        public void UpdateAuthor(AuthorInputModel author, int id)
+        {
+            _authorsRepo.UpdateAuthor(author, id);
+        }
+        public void DeleteAuthor(int id)
+        {
+            _authorsRepo.DeleteAuthor(id);
+        }
     }
 }
