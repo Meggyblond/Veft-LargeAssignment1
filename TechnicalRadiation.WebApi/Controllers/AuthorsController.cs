@@ -28,11 +28,11 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_authorsService.GetAuthorById(id));
         }
 
-        [Route("{id:int}/newsitems", Name = "GetNewsByAuthorId")]
+        [Route("{authorId:int}/newsitems", Name = "GetNewsByAuthorId")]
         [HttpGet]
-        public IActionResult GetNewsByAuthorId(int id)
+        public IActionResult GetNewsByAuthorId(int authorId)
         {
-            return Ok(_authorsService.GetNewsByAuthorId(id));
+            return Ok(_authorsService.GetNewsByAuthorId(authorId));
         }
 
         [Route("")]
@@ -58,6 +58,14 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult DeleteAuthor(int id)
         {
             _authorsService.DeleteAuthor(id);
+            return NoContent();
+        }
+
+        [Route("{authorId:int}/newsItems/{newsItemid:int}")]
+        [HttpPost]
+        public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemid)
+        {
+            _authorsService.LinkAuthorToNewsItem(authorId, newsItemid);
             return NoContent();
         }
     }

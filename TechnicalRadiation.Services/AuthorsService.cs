@@ -32,5 +32,9 @@ namespace TechnicalRadiation.Services
         {
             _authorsRepo.DeleteAuthor(id);
         }
+        public void LinkAuthorToNewsItem(int authorId, int newsId)
+        {
+            _authorsRepo.LinkAuthorToNewsItem(authorId, newsId);
+        }
     }
 }
