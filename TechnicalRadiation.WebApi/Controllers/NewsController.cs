@@ -26,7 +26,6 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             return Ok(_newsService.GetNewsItemById(id));
         }
-
         [Route("")]
         [HttpPost]
         public IActionResult CreateNews([FromBody] NewsItemInputModel body)
@@ -35,5 +34,14 @@ namespace TechnicalRadiation.WebApi.Controllers
             var entity = _newsService.CreateNews(body);
             return CreatedAtRoute("GetNewsItemById", new { id = entity.Id }, null);
         }
+        [Route("{id:int}", Name = "UpdateNews")]
+        [HttpPut]
+        public IActionResult UpdateNews([FromBody] NewsItemInputModel body, int id)
+        {
+            if(!ModelState.IsValid) {return BadRequest("Model is not properly formatted");}
+            _newsService.UpdateNews(body, id);
+            return NoContent();
+        }
+
     }
 }

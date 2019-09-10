@@ -24,7 +24,6 @@ namespace TechnicalRadiation.Repositories
 
             return envelope.Items;
         }
-
         public NewsItemDto GetNewsItemById(int id)
         {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
@@ -40,7 +39,6 @@ namespace TechnicalRadiation.Repositories
                 ShortDescription = entity.ShortDescription
             };
         }
-
         public NewsItemDto CreateNews(NewsItemInputModel news)
         {
             var nextInt = NewsItemDataProvider.NewsItems.OrderByDescending(n => n.Id).FirstOrDefault().Id + 1;
@@ -64,6 +62,18 @@ namespace TechnicalRadiation.Repositories
                 ImgSource = entity.ImgSource,
                 ShortDescription = entity.ShortDescription
             };
+        }
+        public void UpdateNews(NewsItemInputModel news, int id)
+        {
+            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
+            if(entity == null) { /* Do smth */}
+            entity.Title = news.Title;
+            entity.ImgSource = news.ImgSource;
+            entity.ShortDescription = news.ShortDescription;
+            entity.LongDescription = news.LongDescription;
+            entity.PublishDate = news.PublishDate;
+            entity.ModifiedBy = "Admin";
+            entity.ModifiedDate = DateTime.Now;
         }
     }
 }

@@ -21,5 +21,9 @@ namespace TechnicalRadiation.Services
         {
             return _newsRepo.CreateNews(news);
         }
+        public void UpdateNews(NewsItemInputModel news, int id)
+        {
+            _newsRepo.UpdateNews(news, id);
+        }
     }
 }
