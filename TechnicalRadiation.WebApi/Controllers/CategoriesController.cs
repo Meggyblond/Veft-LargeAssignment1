@@ -13,7 +13,6 @@ namespace TechnicalRadiation.WebApi.Controllers
     public class CategoriesController : ControllerBase
     {
         private CategoriesService _categoriesService = new CategoriesService();
-        // GET api/values
         [Route("")]
         [HttpGet]
         public IActionResult GetAllCategories()
@@ -21,11 +20,11 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_categoriesService.GetAllCategories());
         }
 
-        [Route("{id:int}", Name = "GetCategoryById")]
+        [Route("{categoryId:int}", Name = "GetCategoryById")]
         [HttpGet]
-        public IActionResult GetCategoryById(int id)
+        public IActionResult GetCategoryById(int categoryId)
         {
-            return Ok(_categoriesService.GetCategoryById(id));
+            return Ok(_categoriesService.GetCategoryById(categoryId));
         }
 
         [Route("")]
@@ -51,6 +50,14 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult DeleteCategory(int id)
         {
             _categoriesService.DeleteCategory(id);
+            return NoContent();
+        }
+
+        [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
+        [HttpPost]
+        public IActionResult LinkAuthorToNewsItem(int newsItemId, int categoryId)
+        {
+            _categoriesService.LinkNewsItemToCategory(newsItemId, categoryId);
             return NoContent();
         }
     }

@@ -19,15 +19,17 @@ namespace TechnicalRadiation.Repositories
                 Slug = c.Slug
             });
         }
-        public CategoryDto GetCategoryById(int id)
+        public CategoryDetailDto GetCategoryById(int categoryId)
         {
-            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == categoryId);
+            var newsCount = NewsItemCategoriesDataProvider.NewsItemCategories.Where(n => n.CategoryId == categoryId).Count();
             if(entity == null) { /* do smth*/ }
-            return new CategoryDto 
+            return new CategoryDetailDto 
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                Slug = entity.Slug
+                Slug = entity.Slug,
+                NumberOfNewsItems = newsCount
             };
         }
         public CategoryDto CreateCategory(CategoryInputModel category, string slug)
@@ -62,6 +64,18 @@ namespace TechnicalRadiation.Repositories
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
             if(entity == null) {/* do smth */}
             CategoryDataProvider.Categories.Remove(entity);
+        }
+        public void LinkNewsItemToCategory(int newsItemId, int categoryId)
+        {
+            var newsEntity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
+            var categoryEntity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == categoryId);
+            if(newsEntity == null || categoryEntity == null) {/* do smth */}
+            var item = new NewsItemCategories
+            {
+                CategoryId = categoryId,
+                NewsItemId = newsItemId
+            };
+            NewsItemCategoriesDataProvider.NewsItemCategories.Add(item);
         }
     }
 }

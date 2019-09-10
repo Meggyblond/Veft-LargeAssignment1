@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
@@ -11,11 +13,24 @@ namespace TechnicalRadiation.Services
 
         public IEnumerable<CategoryDto> GetAllCategories()
         {
-            return _categoriesRepo.GetAllCategories();
+            var cats = _categoriesRepo.GetAllCategories().ToList();
+            for(int i = 0; i < cats.Count(); i++)
+            {
+                var obj = new { href = $"api/{cats[i].Id}" };
+                cats[i].Links.AddReference("self", obj);
+                cats[i].Links.AddReference("edit", obj);
+                cats[i].Links.AddReference("delete", obj);
+            }
+            return cats;
         }
-        public CategoryDto GetCategoryById(int id)
+        public CategoryDetailDto GetCategoryById(int categoryId)
         {
-            return _categoriesRepo.GetCategoryById(id);
+            var obj = new { href = $"api/{categoryId}" };
+            var cat = _categoriesRepo.GetCategoryById(categoryId);
+            cat.Links.AddReference("self", obj);
+            cat.Links.AddReference("edit", obj);
+            cat.Links.AddReference("delete", obj);
+            return cat;
         }
         public CategoryDto CreateCategory(CategoryInputModel category)
         {
@@ -30,6 +45,10 @@ namespace TechnicalRadiation.Services
         public void DeleteCategory(int id)
         {
             _categoriesRepo.DeleteCategory(id);
+        }
+        public void LinkNewsItemToCategory(int newsItemId, int categoryId)
+        {
+            _categoriesRepo.LinkNewsItemToCategory(newsItemId, categoryId);
         }
     }
 }
