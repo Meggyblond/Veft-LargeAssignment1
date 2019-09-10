@@ -22,5 +22,14 @@ namespace TechnicalRadiation.Services
             string slug = category.Name.Replace(" ", "-").ToLower();
             return _categoriesRepo.CreateCategory(category, slug);
         }
+        public void UpdateCategory(CategoryInputModel category, int id)
+        {
+            string slug = category.Name.Replace(" ", "-").ToLower();
+            _categoriesRepo.UpdateCategory(category, id, slug);
+        }
+        public void DeleteCategory(int id)
+        {
+            _categoriesRepo.DeleteCategory(id);
+        }
     }
 }

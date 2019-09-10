@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.Dtos;
@@ -46,6 +47,21 @@ namespace TechnicalRadiation.Repositories
                 Name = entity.Name,
                 Slug = entity.Slug
             };
+        }
+        public void UpdateCategory(CategoryInputModel category, int id, string slug)
+        {
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            if(entity == null) {/* do smth */}
+            entity.Name = category.Name;
+            entity.Slug = slug;
+            entity.ModifiedBy = "Admin";
+            entity.ModifiedDate = DateTime.Now;
+        }
+        public void DeleteCategory(int id)
+        {
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            if(entity == null) {/* do smth */}
+            CategoryDataProvider.Categories.Remove(entity);
         }
     }
 }

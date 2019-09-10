@@ -35,5 +35,20 @@ namespace TechnicalRadiation.WebApi.Controllers
             var entity = _categoriesService.CreateCategory(body);
             return CreatedAtRoute("GetCategoryById", new { id = entity.Id }, null);
         }
+        [Route("{id:int}", Name = "UpdateCategory")]
+        [HttpPut]
+        public IActionResult UpdateCategory([FromBody] CategoryInputModel body, int id)
+        {
+            if(!ModelState.IsValid) {return BadRequest("Model is not properly formatted");}
+            _categoriesService.UpdateCategory(body, id);
+            return NoContent();
+        }
+        [Route("{id:int}", Name = "DeleteCategory")]
+        [HttpDelete]
+        public IActionResult DeleteCategory(int id)
+        {
+            _categoriesService.DeleteCategory(id);
+            return NoContent();
+        }
     }
 }
