@@ -32,7 +32,7 @@ namespace TechnicalRadiation.Repositories
         }
         public CategoryDto CreateCategory(CategoryInputModel category, string slug)
         {
-            var nextInt = CategoryDataProvider.Categories.OrderByDescending(c => c.Id).FirstOrDefault().Id;
+            var nextInt = CategoryDataProvider.Categories.OrderByDescending(c => c.Id).FirstOrDefault().Id + 1;
             var entity = new Category
             {
                 Id = nextInt,

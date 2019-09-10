@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
 namespace TechnicalRadiation.Repositories
 {
     public class AuthorsRepository
     {
-        private NewsRepository _newsRepo = new NewsRepository();
         public IEnumerable<AuthorDto> GetAllAuthors()
         {
             return AuthorDataProvider.Authors.Select(a => new AuthorDto
@@ -43,7 +45,26 @@ namespace TechnicalRadiation.Repositories
                 ImgSource = n.ImgSource,
                 ShortDescription = n.ShortDescription
             });
-            
+        }
+        public AuthorDto CreateAuthor(AuthorInputModel author)
+        {
+            var nextInt = AuthorDataProvider.Authors.OrderByDescending(a => a.Id).FirstOrDefault().Id + 1;
+            var entity = new Author
+            {
+                Id = nextInt,
+                Name = author.Name,
+                ProfileImgSource = author.ProfileImgSource,
+                Bio = author.Bio,
+                ModifiedBy = "Admin",
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now
+            };
+            AuthorDataProvider.Authors.Add(entity);
+            return new AuthorDto
+            {
+                Id = entity.Id,
+                Name = entity.Name
+            };
         }
     }
 }

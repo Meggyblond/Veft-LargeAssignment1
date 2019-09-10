@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
@@ -32,6 +33,14 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult GetNewsByAuthorId(int id)
         {
             return Ok(_authorsService.GetNewsByAuthorId(id));
+        }
+        [Route("")]
+        [HttpPost]
+        public IActionResult CreateAuthor([FromBody] AuthorInputModel body)
+        {
+            if(!ModelState.IsValid) {return BadRequest("Model not properly formatted");}
+            var entity = _authorsService.CreateAuthor(body);
+            return CreatedAtRoute("GetAuthorById", new { id = entity.Id }, null);
         }
     }
 }

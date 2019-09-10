@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
 namespace TechnicalRadiation.Services
@@ -18,6 +19,10 @@ namespace TechnicalRadiation.Services
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
         {
             return _authorsRepo.GetNewsByAuthorId(id);
+        }
+        public AuthorDto CreateAuthor(AuthorInputModel author)
+        {
+            return _authorsRepo.CreateAuthor(author);
         }
     }
 }

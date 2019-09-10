@@ -27,6 +27,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             return Ok(_categoriesService.GetCategoryById(id));
         }
+
         [Route("")]
         [HttpPost]
         public IActionResult CreateCategory([FromBody] CategoryInputModel body)
@@ -35,6 +36,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             var entity = _categoriesService.CreateCategory(body);
             return CreatedAtRoute("GetCategoryById", new { id = entity.Id }, null);
         }
+
         [Route("{id:int}", Name = "UpdateCategory")]
         [HttpPut]
         public IActionResult UpdateCategory([FromBody] CategoryInputModel body, int id)
@@ -43,6 +45,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             _categoriesService.UpdateCategory(body, id);
             return NoContent();
         }
+        
         [Route("{id:int}", Name = "DeleteCategory")]
         [HttpDelete]
         public IActionResult DeleteCategory(int id)
