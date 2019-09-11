@@ -128,6 +128,14 @@ namespace TechnicalRadiation.Repositories.Data
                 AuthorId = 6,
                 NewsItemId = 30
             },
+            new NewsItemAuthors{
+                AuthorId = 1,
+                NewsItemId = 30
+            },
+            new NewsItemAuthors{
+                AuthorId = 2,
+                NewsItemId = 30
+            }
     };
 }
 }

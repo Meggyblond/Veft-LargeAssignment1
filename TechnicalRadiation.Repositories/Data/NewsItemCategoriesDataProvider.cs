@@ -131,6 +131,14 @@ namespace TechnicalRadiation.Repositories.Data
                 CategoryId = 6,
                 NewsItemId = 30
             },
+                        new NewsItemCategories{
+                CategoryId = 4,
+                NewsItemId = 30
+            },
+                        new NewsItemCategories{
+                CategoryId = 5,
+                NewsItemId = 30
+            }
         };
     }
 

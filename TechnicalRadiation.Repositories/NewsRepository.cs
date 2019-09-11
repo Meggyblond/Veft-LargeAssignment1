@@ -83,5 +83,29 @@ namespace TechnicalRadiation.Repositories
             if(entity == null) { /* do smth */}
             NewsItemDataProvider.NewsItems.Remove(entity);
         }
+        public IEnumerable<Author> getAuthorsByNewsId(int newsId)
+        {
+            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsId);
+            var authors = 
+                    from a in AuthorDataProvider.Authors
+                    join n in NewsItemAuthorsDataProvider.NewsItemAuthors
+                    on a.Id equals n.AuthorId
+                    where n.NewsItemId == entity.Id
+                    select a;
+
+            return authors;
+        }
+        public IEnumerable<Category> getCategoriesByNewsId(int newsId)
+        {
+            var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsId);
+            var categories = 
+                from c in CategoryDataProvider.Categories
+                join n in NewsItemCategoriesDataProvider.NewsItemCategories
+                on c.Id equals n.CategoryId
+                where n.NewsItemId == entity.Id
+                select c;
+            
+            return categories;
+        }
     }
 }

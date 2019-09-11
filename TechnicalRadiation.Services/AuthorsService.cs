@@ -10,15 +10,28 @@ namespace TechnicalRadiation.Services
     public class AuthorsService
     {
         private AuthorsRepository _authorsRepo = new AuthorsRepository();
+        private NewsService _newsService = new NewsService();
         public IEnumerable<AuthorDto> GetAllAuthors() 
         {
             var authors = _authorsRepo.GetAllAuthors().ToList();
             for(int i = 0; i < authors.Count(); i++) 
             {
                 var obj = new { href = $"api/{authors[i].Id}" };
+                var urlObj = new { href = $"api/{authors[i].Id}/newsItems" };
                 authors[i].Links.AddReference("self", obj);
                 authors[i].Links.AddReference("edit", obj);
                 authors[i].Links.AddReference("delete", obj);
+                authors[i].Links.AddReference("newsItems", urlObj);
+
+                List<object> listOfNewsObj = new List<object>();
+                var news = GetNewsByAuthorId(authors[i].Id).ToList();
+                for(int j = 0; j < news.Count(); j++)
+                {
+                    var newsObj = new { href = $"api/{news[j].Id}" };
+                    listOfNewsObj.Add(newsObj);
+                }
+                authors[i].Links.AddListReference("newsItemsDetailed", listOfNewsObj);
+
             }
             return authors;
         }
@@ -45,7 +58,22 @@ namespace TechnicalRadiation.Services
         }
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int authorId)
         {
-            return _authorsRepo.GetNewsByAuthorId(authorId);
+            var news = _authorsRepo.GetNewsByAuthorId(authorId).ToList();
+            for(int i = 0; i < news.Count(); i++)
+            {
+                var obj = new { href = $"api/{news[i].Id}"};
+                news[i].Links.AddReference("self", obj);
+                news[i].Links.AddReference("edit", obj);
+                news[i].Links.AddReference("delete", obj);
+
+                var authorsObjectList = _newsService.getAuthorsObjectByNewsId(news[i].Id);
+                news[i].Links.AddListReference("authors", authorsObjectList);
+
+                var categoriesObjectList = _newsService.getCategoriesObjectByNewsId(news[i].Id);
+                news[i].Links.AddListReference("categories", categoriesObjectList);
+            }
+            
+            return news;
         }
         public AuthorDto CreateAuthor(AuthorInputModel author)
         {
