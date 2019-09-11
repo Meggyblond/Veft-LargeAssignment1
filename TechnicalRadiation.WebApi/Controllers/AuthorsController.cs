@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
+using TechnicalRadiation.WebApi.Attributes;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -35,32 +36,36 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_authorsService.GetNewsByAuthorId(authorId));
         }
 
+        [Authorize]
         [Route("")]
         [HttpPost]
         public IActionResult CreateAuthor([FromBody] AuthorInputModel body)
         {
             if(!ModelState.IsValid) {return BadRequest("Model not properly formatted");}
             var entity = _authorsService.CreateAuthor(body);
-            return CreatedAtRoute("GetAuthorById", new { id = entity.Id }, null);
+            return CreatedAtRoute("GetAuthorById", new { authorId = entity.Id }, null);
         }
 
-        [Route("{id:int}", Name = "UpdateAuthor")]
+        [Authorize]
+        [Route("{authorId:int}", Name = "UpdateAuthor")]
         [HttpPut]
-        public IActionResult UpdateAuthor([FromBody] AuthorInputModel body, int id)
+        public IActionResult UpdateAuthor([FromBody] AuthorInputModel body, int authorId)
         {
             if(!ModelState.IsValid) { return BadRequest("Model not properly formatted");}
-            _authorsService.UpdateAuthor(body, id);
+            _authorsService.UpdateAuthor(body, authorId);
             return NoContent();
         }
 
-        [Route("{id:int}", Name = "DeleteAuthor")]
+        [Authorize]
+        [Route("{authorId:int}", Name = "DeleteAuthor")]
         [HttpDelete]
-        public IActionResult DeleteAuthor(int id)
+        public IActionResult DeleteAuthor(int authorId)
         {
-            _authorsService.DeleteAuthor(id);
+            _authorsService.DeleteAuthor(authorId);
             return NoContent();
         }
-
+        
+        [Authorize]
         [Route("{authorId:int}/newsItems/{newsItemid:int}")]
         [HttpPost]
         public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemid)

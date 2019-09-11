@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
+using TechnicalRadiation.WebApi.Attributes;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -13,6 +14,7 @@ namespace TechnicalRadiation.WebApi.Controllers
     public class CategoriesController : ControllerBase
     {
         private CategoriesService _categoriesService = new CategoriesService();
+
         [Route("")]
         [HttpGet]
         public IActionResult GetAllCategories()
@@ -27,32 +29,36 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_categoriesService.GetCategoryById(categoryId));
         }
 
+        [Authorize]
         [Route("")]
         [HttpPost]
         public IActionResult CreateCategory([FromBody] CategoryInputModel body)
         {
             if(!ModelState.IsValid) {return BadRequest("Model is not properly formatted");}
             var entity = _categoriesService.CreateCategory(body);
-            return CreatedAtRoute("GetCategoryById", new { id = entity.Id }, null);
+            return CreatedAtRoute("GetCategoryById", new { categoryId = entity.Id }, null);
         }
 
-        [Route("{id:int}", Name = "UpdateCategory")]
+        [Authorize]
+        [Route("{categoryId:int}", Name = "UpdateCategory")]
         [HttpPut]
-        public IActionResult UpdateCategory([FromBody] CategoryInputModel body, int id)
+        public IActionResult UpdateCategory([FromBody] CategoryInputModel body, int categoryId)
         {
             if(!ModelState.IsValid) {return BadRequest("Model is not properly formatted");}
-            _categoriesService.UpdateCategory(body, id);
+            _categoriesService.UpdateCategory(body, categoryId);
             return NoContent();
         }
         
-        [Route("{id:int}", Name = "DeleteCategory")]
+        [Authorize]
+        [Route("{categoryId:int}", Name = "DeleteCategory")]
         [HttpDelete]
-        public IActionResult DeleteCategory(int id)
+        public IActionResult DeleteCategory(int categoryId)
         {
-            _categoriesService.DeleteCategory(id);
+            _categoriesService.DeleteCategory(categoryId);
             return NoContent();
         }
-
+        
+        [Authorize]
         [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
         [HttpPost]
         public IActionResult LinkAuthorToNewsItem(int newsItemId, int categoryId)
