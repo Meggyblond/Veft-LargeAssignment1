@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.Attributes;
@@ -19,21 +20,24 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpGet]
         public IActionResult GetAllAuthors()
         {
-            return Ok(_authorsService.GetAllAuthors());
+            var authors = _authorsService.GetAllAuthors();
+            return Ok(authors);
         }
 
         [Route("{authorId:int}", Name = "GetAuthorById")]
         [HttpGet]
         public IActionResult GetAuthorById(int authorId)
         {
-            return Ok(_authorsService.GetAuthorById(authorId));
+            var author = _authorsService.GetAuthorById(authorId);
+            return Ok(author);
         }
 
         [Route("{authorId:int}/newsitems", Name = "GetNewsByAuthorId")]
         [HttpGet]
         public IActionResult GetNewsByAuthorId(int authorId)
         {
-            return Ok(_authorsService.GetNewsByAuthorId(authorId));
+            var news = _authorsService.GetNewsByAuthorId(authorId);
+            return Ok(news);
         }
 
         [Authorize]
@@ -41,7 +45,10 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpPost]
         public IActionResult CreateAuthor([FromBody] AuthorInputModel body)
         {
-            if(!ModelState.IsValid) {return BadRequest("Model not properly formatted");}
+            if(!ModelState.IsValid)
+            {
+                throw new ModelFormatException("Model not properly formatted");
+            }
             var entity = _authorsService.CreateAuthor(body);
             return CreatedAtRoute("GetAuthorById", new { authorId = entity.Id }, null);
         }
@@ -51,7 +58,10 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpPut]
         public IActionResult UpdateAuthor([FromBody] AuthorInputModel body, int authorId)
         {
-            if(!ModelState.IsValid) { return BadRequest("Model not properly formatted");}
+            if(!ModelState.IsValid)
+            {
+                throw new ModelFormatException("Model not properly formatted");
+            }
             _authorsService.UpdateAuthor(body, authorId);
             return NoContent();
         }

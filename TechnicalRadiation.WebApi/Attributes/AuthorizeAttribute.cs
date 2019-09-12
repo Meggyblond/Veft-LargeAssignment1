@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc.Filters;
+using TechnicalRadiation.Models.Exceptions;
 
 namespace TechnicalRadiation.WebApi.Attributes
 {
@@ -10,7 +11,7 @@ namespace TechnicalRadiation.WebApi.Attributes
         {
             if(context.HttpContext.Request.Headers["Authorization"] != authorizationToken) 
             {
-                throw new Exception("lid");
+                throw new AuthorizationException("You are currently unauthorized");
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
@@ -38,6 +39,10 @@ namespace TechnicalRadiation.Services
         public AuthorDetailDto GetAuthorById(int authorId)
         {
             var author = _authorsRepo.GetAuthorById(authorId);
+            if(author == null)
+            {
+                throw new ResourceNotFoundException($"Author with id: {authorId} was not found");
+            }
             var obj = new { href = $"api/{authorId}" };
             var urlObj = new { href = $"api/{authorId}/newsItems" };
 
@@ -58,6 +63,7 @@ namespace TechnicalRadiation.Services
         }
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int authorId)
         {
+            var author = GetAuthorById(authorId);
             var news = _authorsRepo.GetNewsByAuthorId(authorId).ToList();
             for(int i = 0; i < news.Count(); i++)
             {

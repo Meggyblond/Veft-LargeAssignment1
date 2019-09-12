@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
@@ -27,6 +28,10 @@ namespace TechnicalRadiation.Services
         {
             var obj = new { href = $"api/{categoryId}" };
             var cat = _categoriesRepo.GetCategoryById(categoryId);
+            if(cat == null) 
+            {
+                throw new ResourceNotFoundException($"Category with id: {categoryId} was not found");
+            }
             cat.Links.AddReference("self", obj);
             cat.Links.AddReference("edit", obj);
             cat.Links.AddReference("delete", obj);

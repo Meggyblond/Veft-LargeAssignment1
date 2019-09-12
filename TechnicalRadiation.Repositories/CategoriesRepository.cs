@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
@@ -23,7 +24,6 @@ namespace TechnicalRadiation.Repositories
         {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == categoryId);
             var newsCount = NewsItemCategoriesDataProvider.NewsItemCategories.Where(n => n.CategoryId == categoryId).Count();
-            if(entity == null) { /* do smth*/ }
             return new CategoryDetailDto 
             {
                 Id = entity.Id,
@@ -53,7 +53,10 @@ namespace TechnicalRadiation.Repositories
         public void UpdateCategory(CategoryInputModel category, int id, string slug)
         {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
-            if(entity == null) {/* do smth */}
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"Category with id: {id} was not found");
+            }
             entity.Name = category.Name;
             entity.Slug = slug;
             entity.ModifiedBy = "Admin";
@@ -62,14 +65,24 @@ namespace TechnicalRadiation.Repositories
         public void DeleteCategory(int id)
         {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
-            if(entity == null) {/* do smth */}
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"Category with id: {id} was not found");
+            }
             CategoryDataProvider.Categories.Remove(entity);
         }
         public void LinkNewsItemToCategory(int newsItemId, int categoryId)
         {
             var newsEntity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
+            if(newsEntity == null) 
+            {
+                throw new ResourceNotFoundException($"News with id: {newsItemId} was not found");
+            }
             var categoryEntity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == categoryId);
-            if(newsEntity == null || categoryEntity == null) {/* do smth */}
+            if(categoryEntity == null) 
+            {
+                throw new ResourceNotFoundException($"Category with id: {categoryId} was not found");
+            }
             var item = new NewsItemCategories
             {
                 CategoryId = categoryId,

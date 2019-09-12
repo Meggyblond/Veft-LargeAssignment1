@@ -4,6 +4,7 @@ using System.Linq;
 using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
@@ -29,7 +30,7 @@ namespace TechnicalRadiation.Repositories
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
             if(entity == null) 
             {
-                return null; //Dosmth
+                throw new ResourceNotFoundException($"News with id: {newsItemId} was not found");
             }
             return new NewsItemDetailDto
             {
@@ -68,7 +69,10 @@ namespace TechnicalRadiation.Repositories
         public void UpdateNews(NewsItemInputModel news, int id)
         {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
-            if(entity == null) { /* Do smth */}
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"News with id: {id} was not found");
+            }
             entity.Title = news.Title;
             entity.ImgSource = news.ImgSource;
             entity.ShortDescription = news.ShortDescription;
@@ -80,12 +84,19 @@ namespace TechnicalRadiation.Repositories
         public void DeleteNews(int id)
         {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
-            if(entity == null) { /* do smth */}
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"News with id: {id} was not found");
+            }
             NewsItemDataProvider.NewsItems.Remove(entity);
         }
         public IEnumerable<Author> getAuthorsByNewsId(int newsId)
         {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsId);
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"News with id: {newsId} was not found");
+            }
             var authors = 
                     from a in AuthorDataProvider.Authors
                     join n in NewsItemAuthorsDataProvider.NewsItemAuthors
@@ -98,6 +109,10 @@ namespace TechnicalRadiation.Repositories
         public IEnumerable<Category> getCategoriesByNewsId(int newsId)
         {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsId);
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"News with id: {newsId} was not found");
+            }
             var categories = 
                 from c in CategoryDataProvider.Categories
                 join n in NewsItemCategoriesDataProvider.NewsItemCategories
