@@ -17,7 +17,7 @@ namespace TechnicalRadiation.Services
             var cats = _categoriesRepo.GetAllCategories().ToList();
             for(int i = 0; i < cats.Count(); i++)
             {
-                var obj = new { href = $"api/{cats[i].Id}" };
+                var obj = new { href = $"api/categories/{cats[i].Id}" };
                 cats[i].Links.AddReference("self", obj);
                 cats[i].Links.AddReference("edit", obj);
                 cats[i].Links.AddReference("delete", obj);
@@ -26,7 +26,7 @@ namespace TechnicalRadiation.Services
         }
         public CategoryDetailDto GetCategoryById(int categoryId)
         {
-            var obj = new { href = $"api/{categoryId}" };
+            var obj = new { href = $"api/categories/{categoryId}" };
             var cat = _categoriesRepo.GetCategoryById(categoryId);
             if(cat == null) 
             {

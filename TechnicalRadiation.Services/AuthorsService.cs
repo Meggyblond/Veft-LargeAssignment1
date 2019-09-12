@@ -17,8 +17,8 @@ namespace TechnicalRadiation.Services
             var authors = _authorsRepo.GetAllAuthors().ToList();
             for(int i = 0; i < authors.Count(); i++) 
             {
-                var obj = new { href = $"api/{authors[i].Id}" };
-                var urlObj = new { href = $"api/{authors[i].Id}/newsItems" };
+                var obj = new { href = $"api/authors/{authors[i].Id}" };
+                var urlObj = new { href = $"api/authors/{authors[i].Id}/newsItems" };
                 authors[i].Links.AddReference("self", obj);
                 authors[i].Links.AddReference("edit", obj);
                 authors[i].Links.AddReference("delete", obj);
@@ -43,8 +43,8 @@ namespace TechnicalRadiation.Services
             {
                 throw new ResourceNotFoundException($"Author with id: {authorId} was not found");
             }
-            var obj = new { href = $"api/{authorId}" };
-            var urlObj = new { href = $"api/{authorId}/newsItems" };
+            var obj = new { href = $"api/authors/{authorId}" };
+            var urlObj = new { href = $"api/authors/{authorId}/newsItems" };
 
             author.Links.AddReference("self", obj);
             author.Links.AddReference("edit", obj);
@@ -63,7 +63,7 @@ namespace TechnicalRadiation.Services
         }
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int authorId)
         {
-            var author = GetAuthorById(authorId);
+            var author = _authorsRepo.GetAuthorById(authorId);
             var news = _authorsRepo.GetNewsByAuthorId(authorId).ToList();
             for(int i = 0; i < news.Count(); i++)
             {
