@@ -22,6 +22,10 @@ namespace TechnicalRadiation.Repositories
         public AuthorDetailDto GetAuthorById(int authorId)
         {
             var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == authorId);
+            if(entity == null)
+            {
+                throw new ResourceNotFoundException($"Author with id: {authorId} was not found");
+            }
             return new AuthorDetailDto 
             {
                 Id = entity.Id,
@@ -49,7 +53,15 @@ namespace TechnicalRadiation.Repositories
         }
         public AuthorDto CreateAuthor(AuthorInputModel author)
         {
-            var nextInt = AuthorDataProvider.Authors.OrderByDescending(a => a.Id).FirstOrDefault().Id + 1;
+            int nextInt = 0;
+            if(AuthorDataProvider.Authors.Count == 0)
+            {
+                nextInt = 1;
+            }
+            else 
+            {
+                nextInt = AuthorDataProvider.Authors.OrderByDescending(a => a.Id).FirstOrDefault().Id + 1;
+            }
             var entity = new Author
             {
                 Id = nextInt,

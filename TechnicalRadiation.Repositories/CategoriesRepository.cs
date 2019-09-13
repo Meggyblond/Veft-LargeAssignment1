@@ -23,6 +23,10 @@ namespace TechnicalRadiation.Repositories
         public CategoryDetailDto GetCategoryById(int categoryId)
         {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == categoryId);
+            if(entity == null) 
+            {
+                throw new ResourceNotFoundException($"Category with id: {categoryId} was not found");
+            }
             var newsCount = NewsItemCategoriesDataProvider.NewsItemCategories.Where(n => n.CategoryId == categoryId).Count();
             return new CategoryDetailDto 
             {
@@ -34,7 +38,15 @@ namespace TechnicalRadiation.Repositories
         }
         public CategoryDto CreateCategory(CategoryInputModel category, string slug)
         {
-            var nextInt = CategoryDataProvider.Categories.OrderByDescending(c => c.Id).FirstOrDefault().Id + 1;
+            int nextInt = 0;
+            if(CategoryDataProvider.Categories.Count() == 0)
+            {
+                nextInt = 1;
+            }
+            else 
+            {
+                nextInt = CategoryDataProvider.Categories.OrderByDescending(c => c.Id).FirstOrDefault().Id + 1;
+            }
             var entity = new Category
             {
                 Id = nextInt,

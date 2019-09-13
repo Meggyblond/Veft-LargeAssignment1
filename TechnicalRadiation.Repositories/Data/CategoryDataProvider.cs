@@ -13,64 +13,64 @@ namespace TechnicalRadiation.Repositories.Data
             
             new Category {
                 Id = 1,
-                Name = "Breaking News",
-                Slug = "breaking-news",
+                Name = "Nice News",
+                Slug = "nice-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 2,
-                Name = "Goverment",
-                Slug = "goverment",
+                Name = "Bad News",
+                Slug = "bad-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 3,
-                Name = "Politics",
-                Slug = "Politics",
+                Name = "Real News",
+                Slug = "real-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 4,
-                Name = "Sports",
-                Slug = "Sports",
+                Name = "Fake News",
+                Slug = "fake-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 5,
-                Name = "Technology",
-                Slug = "technology",
+                Name = "Other News",
+                Slug = "other-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 6,
-                Name = "Weather",
-                Slug = "weather",
+                Name = "Thug News",
+                Slug = "thug-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 7,
-                Name = "Current Events",
-                Slug = "current-events",
+                Name = "Soccer News",
+                Slug = "soccer-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             },
             new Category {
                 Id = 8,
-                Name = "Traffic & Roads",
-                Slug = "traffic-and-roads",
+                Name = "Spider News",
+                Slug = "spider-news",
                 ModifiedBy = _modifiedByName,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now

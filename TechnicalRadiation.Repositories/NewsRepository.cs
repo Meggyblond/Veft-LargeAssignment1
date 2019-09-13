@@ -44,7 +44,15 @@ namespace TechnicalRadiation.Repositories
         }
         public NewsItemDto CreateNews(NewsItemInputModel news)
         {
-            var nextInt = NewsItemDataProvider.NewsItems.OrderByDescending(n => n.Id).FirstOrDefault().Id + 1;
+            int nextInt = 0;
+            if(NewsItemDataProvider.NewsItems.Count() == 0)
+            {
+                nextInt = 1;
+            }
+            else 
+            {
+                nextInt = NewsItemDataProvider.NewsItems.OrderByDescending(n => n.Id).FirstOrDefault().Id + 1;
+            }
             var entity = new NewsItem
             {
                 Id = nextInt,

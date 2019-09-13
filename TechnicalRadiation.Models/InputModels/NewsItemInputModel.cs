@@ -8,7 +8,7 @@ namespace TechnicalRadiation.Models.InputModels
         [Required]
         public string Title { get; set; }
         [Required]
-        [Url]
+        [RegularExpression(@"(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)")]
         public string ImgSource { get; set; }
         [Required]
         [MaxLength(50)]

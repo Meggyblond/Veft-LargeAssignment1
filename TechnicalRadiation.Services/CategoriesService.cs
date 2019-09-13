@@ -28,10 +28,6 @@ namespace TechnicalRadiation.Services
         {
             var obj = new { href = $"api/categories/{categoryId}" };
             var cat = _categoriesRepo.GetCategoryById(categoryId);
-            if(cat == null) 
-            {
-                throw new ResourceNotFoundException($"Category with id: {categoryId} was not found");
-            }
             cat.Links.AddReference("self", obj);
             cat.Links.AddReference("edit", obj);
             cat.Links.AddReference("delete", obj);

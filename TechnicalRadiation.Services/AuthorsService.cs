@@ -39,10 +39,6 @@ namespace TechnicalRadiation.Services
         public AuthorDetailDto GetAuthorById(int authorId)
         {
             var author = _authorsRepo.GetAuthorById(authorId);
-            if(author == null)
-            {
-                throw new ResourceNotFoundException($"Author with id: {authorId} was not found");
-            }
             var obj = new { href = $"api/authors/{authorId}" };
             var urlObj = new { href = $"api/authors/{authorId}/newsItems" };
 
